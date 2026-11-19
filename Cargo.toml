@@ -4,4 +4,7 @@ version = "0.1.0"
 edition = "2024"
 
 [dependencies]
+gloo-timers = { version = "0.4.1", features = ["futures"] }
 leptos = { version = "0.8.23", features = ["csr"] }
+serde = { version = "1.0.229", features = ["derive"] }
+web-sys = { version = "0.3.107", features = ["MouseEvent"] }
