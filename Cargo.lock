@@ -726,6 +726,7 @@ name = "leptos-final"
 version = "0.1.0"
 dependencies = [
  "leptos",
+ "serde",
 ]
 
 [[package]]
