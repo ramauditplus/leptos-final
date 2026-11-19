@@ -1,4 +1,3 @@
-use leptos::html::Input;
 use leptos::prelude::*;
 
 #[derive(Debug, Clone)]
@@ -27,15 +26,18 @@ fn CreateAnEffect() -> impl IntoView {
     let (last, set_last) = signal(String::new());
     let (use_last, set_use_last) = signal(true);
 
+    let log = expect_context::<LogContext>();
+
     Effect::new(move |_| {
-        leptos::logging::log!(
-            "{}",
-            if use_last.get() {
-                format!("{} {}", first.get(), last.get())
-            } else {
-                format!("{}", first.get())
-            }
-        )
+        let val = if use_last.get() {
+            format!("{} {}", first.get(), last.get())
+        } else {
+            format!("{}", first.get())
+        };
+        log.0.update(|logs| {
+            logs.push(val.clone());
+        });
+        leptos::logging::log!("{}", val)
     });
 
     view! {
