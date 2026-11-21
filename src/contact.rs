@@ -1,0 +1,8 @@
+use leptos::prelude::*;
+
+#[component]
+pub fn Contact() -> impl IntoView{
+    view! {
+        <h1>"Contact"</h1>
+    }
+}
